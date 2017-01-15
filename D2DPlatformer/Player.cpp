@@ -8,7 +8,7 @@ Player::Player(float fX, float fY)
 	m_bFalling = true;
 	m_byJump = 0;
 	m_bDirection = DIRECTION::RIGHT;
-	m_n64PState = 0;
+	//m_n64PState = 0;
 
 	for (int i = 0; i < PLAYER_SPRITE_LEN; i++)
 		for (int j = 0; j < PLAYER_DIRECTIONS; j++)
