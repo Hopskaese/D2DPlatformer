@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "D2DPlatformer", "D2DPlatformer\D2DPlatformer.vcxproj", "{037BE0EF-40C8-4E4F-9583-2F7C2C74A1CE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{037BE0EF-40C8-4E4F-9583-2F7C2C74A1CE}.Debug|Win32.ActiveCfg = Debug|Win32
+		{037BE0EF-40C8-4E4F-9583-2F7C2C74A1CE}.Debug|Win32.Build.0 = Debug|Win32
+		{037BE0EF-40C8-4E4F-9583-2F7C2C74A1CE}.Release|Win32.ActiveCfg = Release|Win32
+		{037BE0EF-40C8-4E4F-9583-2F7C2C74A1CE}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
