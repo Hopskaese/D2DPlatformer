@@ -10,8 +10,8 @@ Map::Map(Graphics *pGraphics)
 	pBackground->m_pSpriteSheet = new SpriteSheet(L"data\\background\\BG_la2y.png", pGraphics, 4200, 1500, 0, false);
 	Add (pBackground);
 
-	pBackground->AddLayer(0, -0.375, 0.1);
-	pBackground->AddLayer(1, -0.857, -0.3);
+	pBackground->AddLayer(0, -0.375f, 0.1f);
+	pBackground->AddLayer(1, -0.857f, -0.3f);
 
 	
 	pBrick = new Brick(800, 480, 384, 93, 0);
@@ -94,11 +94,11 @@ bool Map::IsFalling(Object* pObject, double dt)
 	{
 		if (pPlayer->m_fSpeedY > 0) 
 		{
-			if (o->IsOverlap(pPlayer->m_fX, pPlayer->m_fY, pPlayer->m_fX, pPlayer->m_fY + pPlayer->m_fSpeedY * dt)) return false;
+			if (o->IsOverlap(pPlayer->m_fX, pPlayer->m_fY, pPlayer->m_fX, pPlayer->m_fY + pPlayer->m_fSpeedY * (float)dt)) return false;
 		}
 		else
 		{
-			if (o->IsOverlap(pPlayer->m_fX, pPlayer->m_fY + pPlayer->m_fSpeedY * dt, pPlayer->m_fX, pPlayer->m_fY)) return false;
+			if (o->IsOverlap(pPlayer->m_fX, pPlayer->m_fY + pPlayer->m_fSpeedY * (float)dt, pPlayer->m_fX, pPlayer->m_fY)) return false;
 		}
 	}
 
@@ -126,11 +126,11 @@ Object* Map::GetGround(Object* pObject, double dt)
 	{
 		if (pPlayer->m_fSpeedY > 0) 
 		{
-			if (o->IsOverlap(pPlayer->m_fX, pPlayer->m_fY, pPlayer->m_fX, pPlayer->m_fY + pPlayer->m_fSpeedY * dt)) return o;
+			if (o->IsOverlap(pPlayer->m_fX, pPlayer->m_fY, pPlayer->m_fX, pPlayer->m_fY + pPlayer->m_fSpeedY * (float)dt)) return o;
 		}
 		else
 		{
-			if (o->IsOverlap(pPlayer->m_fX, pPlayer->m_fY + pPlayer->m_fSpeedY * dt, pPlayer->m_fX, pPlayer->m_fY)) return o;
+			if (o->IsOverlap(pPlayer->m_fX, pPlayer->m_fY + pPlayer->m_fSpeedY * (float)dt, pPlayer->m_fX, pPlayer->m_fY)) return o;
 		}
 	}
 

@@ -51,8 +51,8 @@ SpriteSheet::SpriteSheet(wchar_t* szFilename, Graphics* pGraphics)
 	hr = pGraphics->GetRenderTarget()->CreateBitmapFromWicBitmap(wicConverter, NULL, &m_pBitmap);
 
 	m_nAmount = 1;
-	m_nWidth = m_pBitmap->GetSize().width;
-	m_nHeight = m_pBitmap->GetSize().height;
+	m_nWidth = (int) m_pBitmap->GetSize().width;
+	m_nHeight = (int) m_pBitmap->GetSize().height;
 	m_nFrame = 1;
 	m_dwFrameSpeed = 0;
 	m_dwLastFrameChange = GetTickCount();
@@ -126,7 +126,7 @@ SpriteSheet::SpriteSheet(wchar_t* szFilename, Graphics* pGraphics, int nWidth, i
 	m_dwFrameSpeed = dwFrameSpeed;
 	m_bLoop = bLoop;
 
-	m_nAmount = m_pBitmap->GetSize().width / nWidth;
+	m_nAmount = (int) (m_pBitmap->GetSize().width / nWidth);
 }
 
 
@@ -137,7 +137,7 @@ SpriteSheet::~SpriteSheet()
 
 D2D1_RECT_F SpriteSheet::GetSource()
 {
-	D2D1_RECT_F rect = D2D1::RectF(m_nFrame * m_nWidth, 0, m_nFrame * m_nWidth + m_nWidth, m_nHeight);
+	D2D1_RECT_F rect = D2D1::RectF((float) (m_nFrame * m_nWidth), 0, (float) (m_nFrame * m_nWidth + m_nWidth), (float) m_nHeight);
 	
 	NextFrame();
 
@@ -146,7 +146,7 @@ D2D1_RECT_F SpriteSheet::GetSource()
 
 D2D1_RECT_F SpriteSheet::GetSoruce(int nIndex)
 {
-	return D2D1::RectF(nIndex * m_nWidth, 0, nIndex * m_nWidth + m_nWidth, m_nHeight);
+	return D2D1::RectF((float) (nIndex * m_nWidth), 0, (float) (nIndex * m_nWidth + m_nWidth), (float) m_nHeight);
 }
 
 void SpriteSheet::NextFrame()

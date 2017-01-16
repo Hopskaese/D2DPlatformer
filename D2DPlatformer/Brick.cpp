@@ -49,14 +49,14 @@ float Brick::GetHeight(float fX)
 
 	if (m_fAngle <= 90.0)
 	{
-		float fHeight = (1.0 / tan(m_fAngle * (float)(M_PI / 180))) * (fX - m_fX);
+		float fHeight = ((float)1.0 / (float)tan(m_fAngle * (float)(M_PI / 180))) * (fX - m_fX);
 
 		return m_fY + m_fHeight - fHeight;
 	}
 	else
 	{
-		float fAngle = m_fAngle - 90.0;
-		float fHeight = (1.0 / tan(fAngle * (float)(M_PI / 180))) * (m_fX + m_fWidth - fX);
+		float fAngle = m_fAngle - (float)90.0;
+		float fHeight = ((float)1.0 / (float)tan(fAngle * (float)(M_PI / 180))) * (m_fX + m_fWidth - fX);
 
 		return m_fY + m_fHeight - fHeight;
 	}

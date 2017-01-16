@@ -2,10 +2,10 @@
 
 #include "Object.h"
 
-#define PLAYER_WIDTH  43.0
-#define PLAYER_HEIGHT 60.0
-#define PLAYER_SPEED 300.0
-#define PLAYER_JUMPPOWER -400.0
+#define PLAYER_WIDTH  43.0f
+#define PLAYER_HEIGHT 60.0f
+#define PLAYER_SPEED 300.0f
+#define PLAYER_JUMPPOWER -400.0f
 #define PLAYER_JUMPCOUNT 1
 
 #define PLAYER_SPRITE_LEN 3
@@ -33,7 +33,7 @@ public:
 	~Player();
 
 	bool m_bFalling;
-	bool m_byJump;
+	BYTE m_byJump;
 
 	bool m_bDirection;
 
@@ -47,8 +47,6 @@ public:
 	void Gravity(double dt) override;
 	void Fall(double dt) override;
 	void Collision(Object* pObject) override;
-
-	void Fall_(double dt) override;
 
 	void MoveLeft(double dt);
 	void MoveRight(double dt);

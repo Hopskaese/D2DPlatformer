@@ -18,8 +18,6 @@ public:
 	void Fall(double dt) override {}
 	void Collision(Object* pObject) override {}
 
-	void Fall_(double dt) override {}
-
 	bool IsOverlap(float fX1, float fY1, float fX2, float fY2) override;
 
 	float GetHeight(float fX);

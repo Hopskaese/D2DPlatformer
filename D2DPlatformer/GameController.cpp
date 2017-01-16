@@ -49,7 +49,7 @@ LRESULT GameController::MsgProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lPar
 		}
 	case WM_ACTIVATEAPP:
 		{
-			m_bActive = (bool)wParam;
+			m_bActive = wParam != 0;
 			if (!m_bActive) OnRunStop();
 		}
 		break;

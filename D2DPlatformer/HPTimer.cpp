@@ -36,12 +36,12 @@ void HPTimer::UpdateFramestate()
 
 double HPTimer::GetTimeTotal()
 {
-	double d = m_n64CurrentUpdateTime - m_n64StartTime;
+	double d = (double)m_n64CurrentUpdateTime - (double)m_n64StartTime;
 	return d / m_n64Frequency;
 }
 
 double HPTimer::GetTimeDelta()
 {
-	double d = m_n64CurrentUpdateTime - m_n64LastUpdateTime;
+	double d = (double)m_n64CurrentUpdateTime - (double)m_n64LastUpdateTime;
 	return d / m_n64Frequency;
 }

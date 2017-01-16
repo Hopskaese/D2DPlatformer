@@ -49,7 +49,7 @@ void Player::Draw(Graphics* pGraphics)
 void Player::Gravity(double dt)
 {
 	if (m_bFalling) 
-		m_fSpeedY += GRAVITY * dt;
+		m_fSpeedY += GRAVITY * (float)dt;
 }
 
 void Player::Fall(double dt)
@@ -58,16 +58,7 @@ void Player::Fall(double dt)
 
 	//if (d >= MAX_FALL_SPEED) d = MAX_FALL_SPEED - 0.001;
 	if (d > MAX_FALL_SPEED) d = MAX_FALL_SPEED;
-	m_fY += d;
-}
-
-void Player::Fall_(double dt)
-{
-	double d = m_fSpeedY * dt;
-
-	if (d > MAX_FALL_SPEED) d = MAX_FALL_SPEED;
-	
-	// m_fY
+	m_fY += (float)d;
 }
 
 void Player::Collision(Object* pObject)
@@ -103,7 +94,7 @@ void Player::Collision(Object* pObject)
 
 void Player::MoveLeft(double dt)
 {
-	m_fX -= PLAYER_SPEED * dt;
+	m_fX -= PLAYER_SPEED * (float)dt;
 
 	// Direction change
 	if (m_bDirection != DIRECTION::LEFT)
@@ -117,7 +108,7 @@ void Player::MoveLeft(double dt)
 
 void Player::MoveRight(double dt)
 {
-	m_fX += PLAYER_SPEED * dt;
+	m_fX += PLAYER_SPEED * (float)dt;
 
 	// Direction change
 	if (m_bDirection != DIRECTION::RIGHT)

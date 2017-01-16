@@ -18,7 +18,7 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 
 int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE prevInstance, LPWSTR cmd, int nCmdShow)
 {
-	srand(time(nullptr));
+	srand((unsigned int) time(nullptr));
 
 	AllocConsole();
 	AttachConsole(GetCurrentProcessId());

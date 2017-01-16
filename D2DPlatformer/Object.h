@@ -29,8 +29,6 @@ public:
 	virtual void Gravity(double dt) = 0;
 	virtual void Fall(double dt) = 0;
 	virtual void Collision(Object* pObject) = 0;
-
-	virtual void Fall_(double dt) = 0;
  
 	virtual bool IsOverlap(float fX1, float fY1, float fX2, float fY2) { return false; }
 
