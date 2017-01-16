@@ -14,10 +14,11 @@ public:
 
 	//void Draw(Graphics* pGraphics) override;
 	
+	/*
 	void Gravity(double dt) override {}
 	void Fall(double dt) override {}
 	void Collision(Object* pObject) override {}
-
+	*/
 	bool IsOverlap(float fX1, float fY1, float fX2, float fY2) override;
 
 	float GetHeight(float fX);

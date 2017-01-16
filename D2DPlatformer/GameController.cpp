@@ -80,6 +80,7 @@ void GameController::Update()
 		else if (GetKeyState(VK_KEY_D) & 0x8000) OnMoveRight(dt);
 	}
 
+	/*
 	if (m_pMap) 
 	{
 		for (auto o : m_pMap->m_objects)
@@ -90,6 +91,14 @@ void GameController::Update()
 
 			for (auto p : m_pMap->m_objects)
 				o->Collision(p);
+		}
+	}
+	*/
+	if (m_pMap)
+	{
+		for (auto o : m_pMap->m_players)
+		{
+			Gravity(o, dt);
 		}
 	}
 
@@ -164,6 +173,42 @@ void GameController::OnMoveRight(double dt)
 	// Limit player X coordinate
 	if (m_pMainPlayer->m_fX > m_pMap->m_fMaxX - PLAYER_WIDTH)
 		m_pMainPlayer->m_fX = m_pMap->m_fMaxX - PLAYER_WIDTH;
+}
+
+void GameController::Gravity(Player *pPlayer, double dt)
+{
+	pPlayer->m_fSpeedY += GRAVITY * (float)dt;
+
+	if (auto pBrick = FindFloor(pPlayer, dt))
+	{
+		pPlayer->m_fSpeedY = 0;
+		pPlayer->SubPState(Player::PS_JUMP);
+		pPlayer->m_byJump = 0;
+		pPlayer->m_fY = pBrick->GetHeight(pPlayer->m_fX + PLAYER_WIDTH / 2);
+	}
+	else
+	{
+		pPlayer->m_fY += pPlayer->m_fSpeedY * (float)dt;
+	}
+}
+
+Brick* GameController::FindFloor(Player *pPlayer, double dt)
+{
+	float fPlayerY = pPlayer->m_fSpeedY * (float)dt + pPlayer->m_fY;
+
+	for (auto pBrick : m_pMap->m_bricks)
+	{
+		if (pBrick->m_fX <= pPlayer->m_fX + PLAYER_WIDTH && pBrick->m_fX + pBrick->m_fWidth >= pPlayer->m_fX)
+		{
+			float fBrickY = pBrick->GetHeight(pPlayer->m_fX + PLAYER_WIDTH / 2);
+			if (fPlayerY >= fBrickY && pPlayer->m_fY <= fBrickY)
+			{
+				return pBrick;
+			}
+		}
+	}
+	
+	return NULL;
 }
 
 D2D1_POINT_2F GameController::GetCenter()

@@ -18,22 +18,24 @@ Map::Map(Graphics *pGraphics)
 	pBrick->m_pSpriteSheet = new SpriteSheet(L"data\\brick\\19.png", pGraphics);
 	Add (pBrick);
 
-	pBrick = new Brick(300, 380, 384, 93, 0);
+	pBrick = new Brick(370, 445, 384, 93, 0);
 	pBrick->m_pSpriteSheet = new SpriteSheet(L"data\\brick\\19.png", pGraphics);
 	Add (pBrick);
 
-	pBrick = new Brick(10, 280, 384, 93, 0);
+	pBrick = new Brick(10, 390, 384, 93, 0);
 	pBrick->m_pSpriteSheet = new SpriteSheet(L"data\\brick\\19.png", pGraphics);
 	Add (pBrick);
 
-	pBrick = new Brick(450, 220, 384, 93, 0);
+	pBrick = new Brick(430, 335, 384, 93, 0);
 	pBrick->m_pSpriteSheet = new SpriteSheet(L"data\\brick\\19.png", pGraphics);
 	Add (pBrick);
 
+	// Floor
 	pBrick = new Brick(-1400, 572, 4200, 128, 0);
 	pBrick->m_pSpriteSheet = new SpriteSheet(L"data\\brick\\Brick__001.png", pGraphics);
 	Add (pBrick);
 
+	/*
 	pBrick = new Brick(1347, 445, 128, 128, 45.0);
 	pBrick->m_pSpriteSheet = new SpriteSheet(L"data\\brick\\Brick__001_45.png", pGraphics);
 	Add (pBrick);
@@ -45,6 +47,7 @@ Map::Map(Graphics *pGraphics)
 	pBrick = new Brick(1601, 445, 256, 128, 150.0);
 	pBrick->m_pSpriteSheet = new SpriteSheet(L"data\\brick\\Brick__001_-60.png", pGraphics);
 	Add (pBrick);
+	*/
 
 	
 	pDummy = new Dummy(817, 305);
@@ -65,11 +68,13 @@ Map::~Map()
 void Map::Add(Player* pPlayer)
 {
 	m_objects.push_back(pPlayer);
+	m_players.push_back(pPlayer);
 }
 
 void Map::Add(Brick* pBrick)
 {
 	m_objects.push_back(pBrick);
+	m_bricks.push_back(pBrick);
 }
 
 void Map::Add(Background* pBackground)

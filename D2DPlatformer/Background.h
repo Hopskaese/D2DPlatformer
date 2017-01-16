@@ -29,9 +29,11 @@ public:
 
 	//void Draw(Graphics* pGraphics) override;
 	
+	/*
 	void Gravity(double dt) override {}
 	void Fall(double dt) override {}
 	void Collision(Object *pObject) override {}
+	*/
 
 	void OnViewXChange(float fDistance);
 	void OnViewYChange(float fDistance);

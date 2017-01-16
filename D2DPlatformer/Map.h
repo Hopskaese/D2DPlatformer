@@ -12,6 +12,8 @@ class Map
 	Background *m_pBackground;
 
 public:
+	std::vector<Brick*> m_bricks;
+	std::vector<Player*> m_players;
 	std::vector<Object*> m_objects;
 
 	Map(Graphics *pGraphics);

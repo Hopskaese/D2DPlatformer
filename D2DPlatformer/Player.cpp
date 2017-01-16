@@ -46,6 +46,7 @@ void Player::Draw(Graphics* pGraphics)
 }
 */
 
+/*
 void Player::Gravity(double dt)
 {
 	if (m_bFalling) 
@@ -91,6 +92,7 @@ void Player::Collision(Object* pObject)
 
 	m_bFalling = true;
 }
+*/
 
 void Player::MoveLeft(double dt)
 {
