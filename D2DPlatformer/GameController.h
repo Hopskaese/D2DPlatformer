@@ -38,7 +38,6 @@ public:
 	void OnMoveRight(double dt);
 
 	void Gravity(Player *pPlayer, double dt);
-	Brick *FindFloor(Player *pPlayer, double dt = 0);
 
 	D2D1_POINT_2F GetCenter();
 

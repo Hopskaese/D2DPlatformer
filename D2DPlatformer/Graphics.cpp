@@ -96,7 +96,7 @@ void Graphics::Draw(Player* pPlayer)
 
 	m_pRenderTarget->DrawBitmap(
 		pPlayer->m_pSprites[bySprite][pPlayer->m_bDirection]->GetBitmap(),
-		D2D1::RectF(pPlayer->m_fX, pPlayer->m_fY - PLAYER_HEIGHT + 5, pPlayer->m_fX + PLAYER_WIDTH, pPlayer->m_fY + 5),
+		D2D1::RectF(pPlayer->m_fX - PLAYER_WIDTH / 2, pPlayer->m_fY - PLAYER_HEIGHT + 5, pPlayer->m_fX + PLAYER_WIDTH / 2, pPlayer->m_fY + 5),
 		1.0f,
 		D2D1_BITMAP_INTERPOLATION_MODE_NEAREST_NEIGHBOR,
 		pPlayer->m_pSprites[bySprite][pPlayer->m_bDirection]->GetSource()

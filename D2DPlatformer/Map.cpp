@@ -142,6 +142,25 @@ Object* Map::GetGround(Object* pObject, double dt)
 	return nullptr;
 }
 
+Brick * Map::GetGround(Player * pPlayer, double dt)
+{
+	float fPlayerY = pPlayer->m_fSpeedY * (float)dt + pPlayer->m_fY;
+
+	for (auto pBrick : m_bricks)
+	{
+		if (pBrick->m_fX <= pPlayer->m_fX && pBrick->m_fX + pBrick->m_fWidth >= pPlayer->m_fX)
+		{
+			float fBrickY = pBrick->GetHeight(pPlayer->m_fX);
+			if (fPlayerY >= fBrickY && pPlayer->m_fY <= fBrickY)
+			{
+				return pBrick;
+			}
+		}
+	}
+
+	return NULL;
+}
+
 Object* Map::FindObject(float fX1, float fY1, float fX2, float fY2)
 {
 	for (auto o : m_objects)

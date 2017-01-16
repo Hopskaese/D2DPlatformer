@@ -32,6 +32,7 @@ public:
 	bool CanMoveLeft(Object *pObject, double dt);
 	bool CanMoveRight(Object *pObject, double dt);
 	Object* GetGround(Object *pObject, double dt);
+	Brick* GetGround(Player *pPlayer, double dt);
 
 	Object* FindObject(float fX1, float fY1, float fX2, float fY2);
 

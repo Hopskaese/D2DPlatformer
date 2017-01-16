@@ -38,7 +38,7 @@ void Player::Draw(Graphics* pGraphics)
 
 	pGraphics->GetRenderTarget()->DrawBitmap(
 		m_pSprites[bySprite][m_bDirection]->GetBitmap(),
-		D2D1::RectF(m_fX, m_fY - PLAYER_HEIGHT + 5, m_fX + PLAYER_WIDTH, m_fY + 5),
+		D2D1::RectF(m_fX - PLAYER_WIDTH / 2, m_fY - PLAYER_HEIGHT + 5, m_fX + PLAYER_WIDTH / 2, m_fY + 5),
 		1.0f,
 		D2D1_BITMAP_INTERPOLATION_MODE_NEAREST_NEIGHBOR,
 		m_pSprites[bySprite][m_bDirection]->GetSource()
@@ -72,10 +72,10 @@ void Player::Collision(Object* pObject)
 		// Is not falling
 		if (m_fSpeedY <= 0) return;
 
-		if (m_fX + PLAYER_WIDTH < pBrick->m_fX) return;
+		if (m_fX < pBrick->m_fX) return;
 		if (m_fX > pBrick->m_fX + pBrick->m_fWidth) return;
 
-		float fY = pBrick->GetHeight(m_fX + PLAYER_WIDTH / 2);
+		float fY = pBrick->GetHeight(m_fX);
 
 		if (m_fY < fY) return;
 		if (m_fY > fY + MAX_FALL_SPEED) return;
