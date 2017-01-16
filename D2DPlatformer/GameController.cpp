@@ -84,6 +84,7 @@ void GameController::Update()
 	{
 		for (auto o : m_pMap->m_objects)
 		{
+			//o->Fall_(dt);
 			o->Gravity	(dt);
 			o->Fall		(dt);
 

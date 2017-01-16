@@ -48,6 +48,8 @@ public:
 	void Fall(double dt) override;
 	void Collision(Object* pObject) override;
 
+	void Fall_(double dt) override;
+
 	void MoveLeft(double dt);
 	void MoveRight(double dt);
 	void RunStop();
@@ -55,5 +57,5 @@ public:
 	
 	void AddPState(__int64 n64PState) { m_n64PState |= n64PState; }
 	void SubPState(__int64 n64PState) { m_n64PState &= ~n64PState;}
-	bool IsPState (__int64 n64PState) const { return m_n64PState & n64PState; }
+	bool IsPState (__int64 n64PState) const { return (m_n64PState & n64PState) != 0; }
 };

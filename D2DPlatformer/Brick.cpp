@@ -6,7 +6,7 @@
 
 
 Brick::Brick(float fX, float fY, float fWidth, float fHeight, float fAngle)
-	: Object(fX, fY)
+	: Object(fX, fY, OT_BRICK)
 {
 	m_fWidth = fWidth;
 	m_fHeight = fHeight;

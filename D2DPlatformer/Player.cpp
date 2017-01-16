@@ -3,7 +3,7 @@
 
 
 Player::Player(float fX, float fY)
-	: Object(fX, fY)
+	: Object(fX, fY, OT_PLAYER)
 {
 	m_bFalling = true;
 	m_byJump = 0;
@@ -59,6 +59,15 @@ void Player::Fall(double dt)
 	//if (d >= MAX_FALL_SPEED) d = MAX_FALL_SPEED - 0.001;
 	if (d > MAX_FALL_SPEED) d = MAX_FALL_SPEED;
 	m_fY += d;
+}
+
+void Player::Fall_(double dt)
+{
+	double d = m_fSpeedY * dt;
+
+	if (d > MAX_FALL_SPEED) d = MAX_FALL_SPEED;
+	
+	// m_fY
 }
 
 void Player::Collision(Object* pObject)

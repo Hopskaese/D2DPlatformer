@@ -22,7 +22,7 @@ class Background : public Object
 public:
 	std::vector<BackgroundLayer*> m_layers;
 
-	Background(float fX, float fY): Object(fX, fY) {}
+	Background(float fX, float fY): Object(fX, fY, OT_BACKGROUND) {}
 	~Background();
 
 	void AddLayer(int nIndex, float nSpeedX, float nSpeedY);
@@ -32,6 +32,8 @@ public:
 	void Gravity(double dt) override {}
 	void Fall(double dt) override {}
 	void Collision(Object *pObject) override {}
+	
+	void Fall_(double dt) override {}
 
 	void OnViewXChange(float fDistance);
 	void OnViewYChange(float fDistance);

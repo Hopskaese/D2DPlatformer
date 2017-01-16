@@ -2,7 +2,7 @@
 
 int __new_id = 1;
 
-Object::Object(float fX, float fY)
+Object::Object(float fX, float fY, BYTE bType)
 {
 	m_nID = __new_id++;
 

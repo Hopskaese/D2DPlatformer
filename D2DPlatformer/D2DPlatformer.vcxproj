@@ -81,6 +81,7 @@
   <ItemGroup>
     <ClInclude Include="Background.h" />
     <ClInclude Include="Brick.h" />
+    <ClInclude Include="Common.h" />
     <ClInclude Include="Dummy.h" />
     <ClInclude Include="GameController.h" />
     <ClInclude Include="Graphics.h" />
