@@ -65,6 +65,14 @@ LRESULT GameController::MsgProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lPar
 				OnRunStop();
 		}
 		break;
+	case WM_SIZE:
+		{
+			UINT width = LOWORD(lParam);
+			UINT height = HIWORD(lParam);
+
+			//OnResize(width, height);
+		}
+		break;
 	}
 
 	return DefWindowProc(hWnd, uMsg, wParam, lParam);

@@ -19,6 +19,9 @@ class Graphics
 
 public:
 
+	UINT m_nScreenWidth;
+	UINT m_nScreenHeight;
+
 	Graphics();
 	~Graphics();
 

@@ -6,6 +6,9 @@ Graphics::Graphics()
 	m_pFactory =		NULL;
 	m_pRenderTarget =	NULL;
 	m_pBrush =			NULL;
+
+	m_nScreenWidth =	SCREEN_WIDTH;
+	m_nScreenHeight =	SCREEN_HEIGHT;
 }
 
 Graphics::~Graphics()
