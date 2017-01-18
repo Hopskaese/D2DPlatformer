@@ -67,10 +67,7 @@ LRESULT GameController::MsgProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lPar
 		break;
 	case WM_SIZE:
 		{
-			UINT width = LOWORD(lParam);
-			UINT height = HIWORD(lParam);
-
-			//OnResize(width, height);
+			OnResize(LOWORD(lParam), HIWORD(lParam));
 		}
 		break;
 	}
@@ -183,6 +180,15 @@ void GameController::OnMoveRight(double dt)
 		m_pMainPlayer->m_fX = m_pMap->m_fMaxX - PLAYER_WIDTH / 2;
 }
 
+void GameController::OnResize(UINT width, UINT height)
+{
+	D2D1_SIZE_U size;
+	size.width = width;
+	size.height = height;
+
+	m_pGraphics->GetRenderTarget()->Resize(size);
+}
+
 void GameController::Gravity(Player *pPlayer, double dt)
 {
 	pPlayer->m_fSpeedY += GRAVITY * (float)dt;
@@ -210,6 +216,7 @@ D2D1_POINT_2F GameController::GetCenter()
 	center.x = m_pMainPlayer->m_fX;
 	center.y = m_pMainPlayer->m_fY - PLAYER_HEIGHT / 2;
 
+	/*
 	if (m_pMap->m_fMaxY - center.y < SCREEN_HEIGHT / 2) 
 		center.y = m_pMap->m_fMaxY - SCREEN_HEIGHT / 2;
 
@@ -218,6 +225,18 @@ D2D1_POINT_2F GameController::GetCenter()
 
 	if (center.x - m_pMap->m_fMinX < SCREEN_WIDTH / 2) 
 		center.x = m_pMap->m_fMinX + SCREEN_WIDTH / 2;
+	*/
+
+	D2D1_SIZE_F size = m_pGraphics->GetRenderTarget()->GetSize();
+
+	if (m_pMap->m_fMaxY - center.y < size.height / 2)
+		center.y = m_pMap->m_fMaxY - size.height / 2;
+
+	if (m_pMap->m_fMaxX - center.x < size.width / 2)
+		center.x = m_pMap->m_fMaxX - size.width / 2;
+
+	if (center.x - m_pMap->m_fMinX < size.width / 2)
+		center.x = m_pMap->m_fMinX + size.width / 2;
 
 	return center;
 }

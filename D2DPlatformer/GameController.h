@@ -37,9 +37,13 @@ public:
 	void OnMoveLeft(double dt);
 	void OnMoveRight(double dt);
 
+	void OnResize(UINT width, UINT height);
+
 	void Gravity(Player *pPlayer, double dt);
 
 	D2D1_POINT_2F GetCenter();
 
 	bool IsGrahpics() { return m_pGraphics != NULL; }
+
+
 };

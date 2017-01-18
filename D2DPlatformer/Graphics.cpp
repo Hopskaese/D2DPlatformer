@@ -6,9 +6,6 @@ Graphics::Graphics()
 	m_pFactory =		NULL;
 	m_pRenderTarget =	NULL;
 	m_pBrush =			NULL;
-
-	m_nScreenWidth =	SCREEN_WIDTH;
-	m_nScreenHeight =	SCREEN_HEIGHT;
 }
 
 Graphics::~Graphics()
@@ -43,7 +40,11 @@ bool Graphics::Init(HWND hWnd)
 
 void Graphics::SetCenter(float fX, float fY)
 {
-	m_pRenderTarget->SetTransform(D2D1::Matrix3x2F::Translation(SCREEN_WIDTH / 2 - fX, SCREEN_HEIGHT / 2 - fY));
+	//m_pRenderTarget->SetTransform(D2D1::Matrix3x2F::Translation(SCREEN_WIDTH / 2 - fX, SCREEN_HEIGHT / 2 - fY));
+
+	D2D1_SIZE_F size = m_pRenderTarget->GetSize();
+
+	m_pRenderTarget->SetTransform(D2D1::Matrix3x2F::Translation(size.width / 2 - fX, size.height / 2 - fY));
 }
 
 void Graphics::ClearScreen(float fRed, float fGreen, float fBlue)
